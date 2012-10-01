@@ -10,8 +10,8 @@ const maxInt = int(^uint(0) >> 1)
  
 // BUG: clocks are not monotonic.
 
-// CalibratePBKDF2 returns the estimated number of iterations required to 
-// derive key of length keyLen with hash function h in the given time. 
+// CalibratePBKDF2 returns the estimated number of PBKDF2 iterations required
+// to derive key of length keyLen with hash function h in the given time. 
 func CalibratePBKDF2(dur time.Duration, h func() hash.Hash, keyLen int) int { 
 	// XXX uses block size as input, maybe provide password and salt len?
         block := make([]byte, h().BlockSize()) 
